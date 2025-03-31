@@ -23,10 +23,10 @@ export const getMonsterById = async (id: string): Promise<Monster | null> => {
     return { id: doc.id, ...doc.data() } as Monster;
 };
 
-export const createmonster = async(monster: Partial<Monster>) : Promise<monster> => {
+export const createmonster = async(monster: Partial<Monster>) : Promise<Monster> => {
     const id = await createDocument(COLLECTION, monster);
     return { id, ...monster} as Monster;
-};
+}; 
 
 export const updatemonster = async (
     id: string,
