@@ -1,6 +1,9 @@
 import express, { Express } from "express";
 import { Server } from "http";
 
+// Import Swagger
+import setupSwagger from "../config/swagger";
+
 // Initialize Express app
 const app: Express = express();
 
@@ -12,6 +15,8 @@ app.get("/", (req, res) =>{
 app.get("/health", (req, res) => {
     res.send("Server is healthy.")
 });
+
+setupSwagger(app);
 
 // Start the server
 let server: Server | null = null;
