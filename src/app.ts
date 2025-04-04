@@ -1,5 +1,15 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import express, { Express } from "express";
 import { Server } from "http";
+
+// Import Hero routes
+import heroRoutes from "../src/api/v1/routes/heroRoutes";
+// Import Monster routes
+import monsterRoutes from "../src/api/v1/routes/monsterRoutes";
+// Import affiliation routes
+import affiliationRoutes from "../src/api/v1/routes/affiliationRoutes";
 
 // Import Swagger
 import setupSwagger from "../config/swagger";
@@ -15,6 +25,13 @@ app.get("/", (req, res) =>{
 app.get("/health", (req, res) => {
     res.send("Server is healthy.")
 });
+
+// modular route for heroes
+app.use("/api/v1/heroes", heroRoutes);
+// modular route for monsters
+app.use("/api/v1/monsters", monsterRoutes);
+// modular route for affiliation
+app.use("/api/v1/affiliation", affiliationRoutes);
 
 setupSwagger(app);
 
