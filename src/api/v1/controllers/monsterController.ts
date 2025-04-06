@@ -56,7 +56,7 @@ export const createMonster = async (
     next: NextFunction
 ): Promise<void> => {
     try {
-        const newMonster: Monster = await monsterService.createmonster(req.body);
+        const newMonster: Monster = await monsterService.createMonster(req.body);
         res.status(201).json({ message: "New monster created", data: newMonster});
     } catch(error) {
         const err: ExtendedError = new Error("Failed to create monster.");
@@ -78,7 +78,7 @@ export const updateMonster = async (
             err.code = "Missing monster id";
             return next(err);
         }
-        const updatedMonster: Monster | null = await monsterService.updatemonster(
+        const updatedMonster: Monster | null = await monsterService.updateMonster(
             req.params.id,
             req.body
         );
@@ -108,7 +108,7 @@ export const deleteMonster = async (
     next: NextFunction
 ): Promise<void> => {
     try {
-        await monsterService.deletemonster(req.params.id);
+        await monsterService.deleteMonster(req.params.id);
         res.status(200).json({ message: "Monster deleted."});
     } catch(error) {
         next(error);

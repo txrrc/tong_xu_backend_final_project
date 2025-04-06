@@ -16,6 +16,30 @@ const swaggerOptions: swaggerJsdoc.Options = {
             },
         ],
         components: {
+            schemas: {
+                Hero: {
+                  type: "object",
+                  properties: {
+                    id: {
+                      type: "string",
+                      example: "9",
+                    },
+                    name: {
+                      type: "string",
+                      example: "Tanktop Vegeterian",
+                    },
+                    rank: {
+                      type: "string",
+                      example: "A",
+                    },
+                    ability: {
+                      type: "string",
+                      example: "Tanktop Smash",
+                    },
+                  },
+                  required: ["id", "name", "rank", "ability"],
+                },
+              },
             securitySchemes: {
                 bearerAuth: {
                     type: "http",
