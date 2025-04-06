@@ -14,7 +14,7 @@ export const getAllAffiliations = async (
 ): Promise<void> => {
     try {
         const Affiliationes: Affiliation[] = await affiliationService.getAllAffiliations();
-        res.status(200).json({ message: "Affiliationes Retrieved", data: Affiliationes});
+        res.status(200).json({ message: "Affiliations Retrieved", data: Affiliationes});
     } catch(error) {
         const err: ExtendedError = new Error("Failed to retrieve Affiliationes.");
         err.statusCode = 500;
