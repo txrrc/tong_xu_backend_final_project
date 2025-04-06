@@ -5,7 +5,7 @@ import { affiliationSchema } from "../validations/affiliationValidation";
 
 const router: Router = express.Router();
 
-router.get("/", affiliationController.getAllAffiliationes);
+router.get("/", affiliationController.getAllAffiliations);
 router.get("/:id", affiliationController.getAffiliationById);
 router.post("/", affiliationController.createAffiliation);
 router.put("/:id", affiliationController.updateAffiliation);

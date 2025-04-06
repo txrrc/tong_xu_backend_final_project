@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import * as HeroService from "../services/heroService";
 import type { Hero } from "../models/heroModel";
-import request from "node_modules/@types/request";
 import { createDocument } from "../repositories/firestoreRepository";
 
 interface ExtendedError extends Error {
@@ -62,7 +61,7 @@ export const createHero = async (
         const newHero: Hero = await HeroService.createHero(req.body);
         res.status(201).json({ message: "Hero created", data: newHero});
     } catch(error) {
-        const err: ExtendedError = new Error("Failed tyo create hero");
+        const err: ExtendedError = new Error("Failed to create hero");
         err.statusCode = 500;
         err.code = "Database Error";
         next(err);
@@ -85,7 +84,7 @@ export const updateHero = async (
             req.params.id,
             req.body
         );
-        if (!updateHero) {
+        if (!updatedHero) {
             const err: ExtendedError = new Error(`Hero with id ${req.params.id} not found.`);
             err.statusCode = 404;
             err.code = "Hero not found";

@@ -1,8 +1,7 @@
 import Joi, { ObjectSchema } from "joi";
 
 export const heroSchema: ObjectSchema = Joi.object({
-    id: Joi.string().required().messages({
-        "any.required": "Hero id is required.",
+    id: Joi.string().optional().messages({
         "string.empty": "Hero id cannot be empty.",
     }),
     name: Joi.string().optional().messages({

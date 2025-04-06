@@ -7,7 +7,7 @@ interface ExtendedError extends Error {
 	statusCode?: number; // HTTP status code for the error
 }
 
-export const getAllAffiliationes = async (
+export const getAllAffiliations = async (
     req: Request,
     res: Response,
     next: NextFunction

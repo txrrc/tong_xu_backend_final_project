@@ -17,6 +17,8 @@ import setupSwagger from "../config/swagger";
 // Initialize Express app
 const app: Express = express();
 
+app.use(express.json());
+
 // Define the route
 app.get("/", (req, res) =>{
     res.send("Hello, World!");
