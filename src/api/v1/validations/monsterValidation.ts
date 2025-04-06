@@ -14,4 +14,7 @@ export const monsterSchema: ObjectSchema = Joi.object({
     ability: Joi.string().optional().messages({
         "string.empty": "Monster ability cannot be empty.",
     }),
+    defeatHistory: Joi.string().optional().messages({
+        "string.empty": "Monster defeatHistory cannot be empty.",
+    }),
 });

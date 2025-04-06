@@ -25,10 +25,11 @@ describe("Monster Controller", () => {
     describe("getAllMonsteres", () => {
         it ("should retrieve all monsteres", async () => {
             const mockedmonster = {
-                id: "9",
-                name: "Tanktop Vegeterian",
-                threatlevel: "A",
-                ability: "Tanktop smash",
+                id: "20",
+                name: "King of the sea",
+                threatlevel: "Ghost",
+                ability: "Acid",
+                defeatHistory: "Killed by Saitama",
             };
             (monsterService.getAllMonsters as jest.Mock).mockResolvedValue(mockedmonster);
             await monsterController.getAllMonsters(
@@ -52,10 +53,11 @@ describe("Monster Controller", () => {
                         name: "King of the sea",
                         threatlevel: "Ghost",
                         ability: "Acid",
+                        defeatHistory: "Killed by Saitama",
                     };
                 
                 (monsterService.getMonsterById as jest.Mock).mockResolvedValue(mockedmonster);
-                mockReq.params = { id: "9" };
+                mockReq.params = { id: "20" };
                 await monsterController.getMonsterById(
                     mockReq as Request,
                     mockRes as Response,
@@ -76,6 +78,7 @@ describe("Monster Controller", () => {
                 name: "King of the sea",
                 threatlevel: "Ghost",
                 ability: "Acid",
+                defeatHistory: "Killed by Saitama",
             };
             (monsterService.createMonster as jest.Mock).mockResolvedValue(mocknewMonster);
             mockReq.body = mocknewMonster;
@@ -99,6 +102,7 @@ describe("Monster Controller", () => {
                 name: "King of the sea",
                 threatlevel: "Ghost",
                 ability: "Acid",
+                defeatHistory: "Killed by Saitama",
             };
             (monsterService.updateMonster as jest.Mock).mockResolvedValue(updatedMonster);
             mockReq.params = { id: "2"};

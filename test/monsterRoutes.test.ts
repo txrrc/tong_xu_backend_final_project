@@ -38,6 +38,7 @@ describe("Monster Routes", () => {
                 name: "King of the sea",
                 threatlevel: "Ghost",
                 ability: "Acid",
+                defeatHistory: "Killed by Saitama",
             };
             await request(app).post("/api/v1/monsters").send(mockMonster);
             expect(monsterController.createMonster).toHaveBeenCalled();
@@ -51,6 +52,7 @@ describe("Monster Routes", () => {
                 name: "King of the sea",
                 threatlevel: "Ghost",
                 ability: "Acid",
+                defeatHistory: "Killed by Saitama",
             };
             await request(app).put("/api/v1/monsters/9").send(mockMonster);
             expect(monsterController.updateMonster).toHaveBeenCalled();
