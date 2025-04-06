@@ -8,8 +8,8 @@ export const monsterSchema: ObjectSchema = Joi.object({
     name: Joi.string().optional().messages({
         "string.empty": "Monster name cannot be empty",
     }),
-    rank: Joi.string().optional().messages({
-        "string.empty": "Monster rank cannot be empty",
+    threatlevel: Joi.string().optional().messages({
+        "string.empty": "Monster threatlevel cannot be empty",
     }),
     ability: Joi.string().optional().messages({
         "string.empty": "Monster ability cannot be empty.",

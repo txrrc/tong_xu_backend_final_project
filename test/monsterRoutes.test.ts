@@ -36,7 +36,7 @@ describe("Monster Routes", () => {
             const mockMonster = {
                 id: "20",
                 name: "King of the sea",
-                rank: "Ghost",
+                threatlevel: "Ghost",
                 ability: "Acid",
             };
             await request(app).post("/api/v1/monsters").send(mockMonster);
@@ -49,7 +49,7 @@ describe("Monster Routes", () => {
             const mockMonster = {
                 id: "20",
                 name: "King of the sea",
-                rank: "Ghost",
+                threatlevel: "Ghost",
                 ability: "Acid",
             };
             await request(app).put("/api/v1/monsters/9").send(mockMonster);
