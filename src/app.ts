@@ -33,7 +33,7 @@ app.use("/api/v1/heroes", heroRoutes);
 // modular route for monsters
 app.use("/api/v1/monsters", monsterRoutes);
 // modular route for affiliation
-app.use("/api/v1/affiliation", affiliationRoutes);
+app.use("/api/v1/affiliations", affiliationRoutes);
 
 setupSwagger(app);
 
