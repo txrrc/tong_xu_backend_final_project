@@ -22,13 +22,14 @@ describe("Monster Controller", () => {
         mockNext = jest.fn();
     });
 
-    describe("getAllMonsters", () => {
-        it ("should retrieve all monsters", async () => {
+    describe("getAllMonsteres", () => {
+        it ("should retrieve all monsteres", async () => {
             const mockedmonster = {
                 id: "20",
                 name: "King of the sea",
-                rank: "Ghost",
+                threatlevel: "Ghost",
                 ability: "Acid",
+                defeatHistory: "Killed by Saitama",
             };
             (monsterService.getAllMonsters as jest.Mock).mockResolvedValue(mockedmonster);
             await monsterController.getAllMonsters(
@@ -50,12 +51,13 @@ describe("Monster Controller", () => {
                     {
                         id: "20",
                         name: "King of the sea",
-                        rank: "Ghost",
+                        threatlevel: "Ghost",
                         ability: "Acid",
+                        defeatHistory: "Killed by Saitama",
                     };
                 
                 (monsterService.getMonsterById as jest.Mock).mockResolvedValue(mockedmonster);
-                mockReq.params = { id: "9" };
+                mockReq.params = { id: "20" };
                 await monsterController.getMonsterById(
                     mockReq as Request,
                     mockRes as Response,
@@ -74,8 +76,9 @@ describe("Monster Controller", () => {
             const mocknewMonster = {
                 id: "20",
                 name: "King of the sea",
-                rank: "Ghost",
+                threatlevel: "Ghost",
                 ability: "Acid",
+                defeatHistory: "Killed by Saitama",
             };
             (monsterService.createMonster as jest.Mock).mockResolvedValue(mocknewMonster);
             mockReq.body = mocknewMonster;
@@ -95,10 +98,11 @@ describe("Monster Controller", () => {
     describe("updateMonster", () => {
         it ("should handle successfully monster update", async () => {
             const updatedMonster = {
-                ID: "2",
-                Name: "Winnipeg Branch",
-                Address: "7250 82 Ave NW, Edmonton, MB, R3B 0G4",
-                Phone: "780-468-6800"
+                id: "20",
+                name: "King of the sea",
+                threatlevel: "Ghost",
+                ability: "Acid",
+                defeatHistory: "Killed by Saitama",
             };
             (monsterService.updateMonster as jest.Mock).mockResolvedValue(updatedMonster);
             mockReq.params = { id: "2"};
@@ -132,4 +136,4 @@ describe("Monster Controller", () => {
                 });
             });
         });
-});
+})

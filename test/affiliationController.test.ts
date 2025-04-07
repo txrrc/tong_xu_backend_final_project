@@ -22,13 +22,12 @@ describe("Affiliation Controller", () => {
         mockNext = jest.fn();
     });
 
-    describe("getAllAffiliations", () => {
-        it ("should retrieve all affiliations", async () => {
+    describe("getAllAffiliationes", () => {
+        it ("should retrieve all affiliationes", async () => {
             const mockedaffiliation = {
-                id: "20",
-                name: "King of the sea",
-                rank: "Ghost",
-                ability: "Acid",
+                id: "3",
+                name: "Family of monster",
+                background: "An association locates under City Z"
             };
             (affiliationService.getAllAffiliations as jest.Mock).mockResolvedValue(mockedaffiliation);
             await affiliationController.getAllAffiliations(
@@ -48,10 +47,9 @@ describe("Affiliation Controller", () => {
             it ("should get affiliation by ID", async () => {
                 const mockedaffiliation = 
                     {
-                        id: "20",
-                        name: "King of the sea",
-                        rank: "Ghost",
-                        ability: "Acid",
+                        id: "3",
+                        name: "Family of monster",
+                        background: "An association locates under City Z"
                     };
                 
                 (affiliationService.getAffiliationById as jest.Mock).mockResolvedValue(mockedaffiliation);
@@ -72,10 +70,9 @@ describe("Affiliation Controller", () => {
     describe("createAffiliation", () => {
         it ("should handle succesfully affiliation creation", async () => {
             const mocknewAffiliation = {
-                id: "20",
-                name: "King of the sea",
-                rank: "Ghost",
-                ability: "Acid",
+                id: "3",
+                name: "Family of monster",
+                background: "An association locates under City Z"
             };
             (affiliationService.createAffiliation as jest.Mock).mockResolvedValue(mocknewAffiliation);
             mockReq.body = mocknewAffiliation;
@@ -95,10 +92,10 @@ describe("Affiliation Controller", () => {
     describe("updateAffiliation", () => {
         it ("should handle successfully affiliation update", async () => {
             const updatedAffiliation = {
-                ID: "2",
-                Name: "Winnipeg Branch",
-                Address: "7250 82 Ave NW, Edmonton, MB, R3B 0G4",
-                Phone: "780-468-6800"
+                id: "20",
+                name: "King of the sea",
+                rank: "Ghost",
+                ability: "Acid",
             };
             (affiliationService.updateAffiliation as jest.Mock).mockResolvedValue(updatedAffiliation);
             mockReq.params = { id: "2"};
@@ -132,4 +129,4 @@ describe("Affiliation Controller", () => {
                 });
             });
         });
-});
+})

@@ -17,7 +17,7 @@ describe("Hero Routes", () => {
         jest.clearAllMocks();
     });
 
-    describe("Get api/v1/Heroes", () => {
+    describe("Get api/v1/heroes", () => {
         it ("should call getAllHeroes controller", async () => {
             await request(app).get("/api/v1/heroes");
             expect(heroController.getAllHeroes).toHaveBeenCalled();
