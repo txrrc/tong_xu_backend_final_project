@@ -132,4 +132,4 @@ describe("Hero Controller", () => {
                 });
             });
         });
-});
+})
